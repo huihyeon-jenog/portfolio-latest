@@ -1,14 +1,49 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/09a8b7c530.js" crossorigin="anonymous"></script>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        fontFamily: {
+          sans: ["Pretendard"],
+        }
+      }
+    }
+  </script>
   <title>프론트엔드 개발자 - 정희현</title>
 </head>
+
 <body>
-  <h1 class="text-3xl font-bold underline">
-    Hello world!2
-  </h1>
+  <div class="container max-w-screen-xl mx-auto pt-12 flex flex-col gap-16">
+    <div class="flex flex-col gap-y-2">
+      <h1 class="text-5xl font-bold">정희현</h1>
+      <h2 class="text-2xl	text-zinc-500">프론트엔드 개발자</h2>
+    </div>
+    <div class="flex gap-12">
+      <div class="w-80 h-80 bg-zinc-500"></div>
+      <div>
+        <p>
+          안녕하세요.<br />
+          프론트엔드 개발자 3년차, 빠르고 좋은 사용자 경험을 위해 완성도 높은 작업을 추구하는 개발자입니다.
+        </p>
+        <div>
+          <a href="mailto:wjdgmlgus5@naver.com">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"
+              viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+              <path
+                d="M256 64C150 64 64 150 64 256s86 192 192 192c17.7 0 32 14.3 32 32s-14.3 32-32 32C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256v32c0 53-43 96-96 96c-29.3 0-55.6-13.2-73.2-33.9C320 371.1 289.5 384 256 384c-70.7 0-128-57.3-128-128s57.3-128 128-128c27.9 0 53.7 8.9 74.7 24.1c5.7-5 13.1-8.1 21.3-8.1c17.7 0 32 14.3 32 32v80 32c0 17.7 14.3 32 32 32s32-14.3 32-32V256c0-106-86-192-192-192zm64 192a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z" />
+            </svg>
+            wjdgmlgus5@naver.com
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
+
 </html>
