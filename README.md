@@ -1,6 +1,6 @@
 # 정희현 | 프론트엔드 개발자 포트폴리오
 
-**💻 Live Demo: [https://your-github-id.github.io/your-repo-name/](https://your-github-id.github.io/your-repo-name/)**
+**💻 Live Demo: [https://huihyeon-jenog.github.io/portfolio-latest/](https://huihyeon-jenog.github.io/portfolio-latest/)**
 
 ---
 
