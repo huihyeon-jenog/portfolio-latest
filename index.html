@@ -1,49 +1,406 @@
 <!DOCTYPE html>
 <html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://kit.fontawesome.com/09a8b7c530.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    fontFamily: {
+                        sans: ["Pretendard"],
+                    },
+                },
+            };
+        </script>
+        <title>프론트엔드 개발자 - 정희현</title>
+        <style>
+            body {
+                background-color: #F5F5F5;
+            }
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://kit.fontawesome.com/09a8b7c530.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        fontFamily: {
-          sans: ["Pretendard"],
-        }
-      }
-    }
-  </script>
-  <title>프론트엔드 개발자 - 정희현</title>
-</head>
+            @media print {
+                @page {
+                    size: A4;
+                    margin: 10mm;
+                }
 
-<body>
-  <div class="container max-w-screen-xl mx-auto pt-12 flex flex-col gap-16">
-    <div class="flex flex-col gap-y-2">
-      <h1 class="text-5xl font-bold">정희현</h1>
-      <h2 class="text-2xl	text-zinc-500">프론트엔드 개발자</h2>
-    </div>
-    <div class="flex gap-12">
-      <div class="w-80 h-80 bg-zinc-500"></div>
-      <div>
-        <p>
-          안녕하세요.<br />
-          프론트엔드 개발자 3년차, 빠르고 좋은 사용자 경험을 위해 완성도 높은 작업을 추구하는 개발자입니다.
-        </p>
-        <div>
-          <a href="mailto:wjdgmlgus5@naver.com">
-            <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"
-              viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-              <path
-                d="M256 64C150 64 64 150 64 256s86 192 192 192c17.7 0 32 14.3 32 32s-14.3 32-32 32C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256v32c0 53-43 96-96 96c-29.3 0-55.6-13.2-73.2-33.9C320 371.1 289.5 384 256 384c-70.7 0-128-57.3-128-128s57.3-128 128-128c27.9 0 53.7 8.9 74.7 24.1c5.7-5 13.1-8.1 21.3-8.1c17.7 0 32 14.3 32 32v80 32c0 17.7 14.3 32 32 32s32-14.3 32-32V256c0-106-86-192-192-192zm64 192a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z" />
-            </svg>
-            wjdgmlgus5@naver.com
-          </a>
+                body {
+                    background-color: white;
+                }
+
+
+                /* 버튼 숨기기 */
+                button {
+                    display: none !important;
+                }
+
+                .container {
+                    padding-block: 0 !important;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container max-w-screen-md mx-auto px-4 py-12 flex flex-col gap-8 ">
+            <section class="flex justify-between items-start">
+                <div>
+                    <h1 class="text-5xl font-bold text-zinc-900 mb-2">정희현</h1>
+                    <h2 class="text-2xl text-zinc-600">프론트엔드 개발자</h2>
+                </div>
+                <div id="action-buttons" class="hidden md:flex gap-x-1">
+                    <button id="download" type="button" class="p-3 rounded-lg flex items-center justify-center focus:outline-none transition duration-200 hover:bg-zinc-200" data-tippy-content="PDF 다운로드">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg>
+                    </button>
+                    <button id="print" type="button" class="p-3 rounded-lg flex items-center justify-center focus:outline-none transition duration-200 hover:bg-zinc-200" data-tippy-content="인쇄">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <g clip-path="url(#clip0_17_19094)">
+                                <path opacity="0.3" d="M8 5H16V8H8V5ZM19 10H5C4.45 10 4 10.45 4 11V15H6V13H18V15H20V11C20 10.45 19.55 10 19 10ZM18 12.5C17.45 12.5 17 12.05 17 11.5C17 10.95 17.45 10.5 18 10.5C18.55 10.5 19 10.95 19 11.5C19 12.05 18.55 12.5 18 12.5Z" fill="#323232"/>
+                                <path d="M19 8H18V3H6V8H5C3.34 8 2 9.34 2 11V17H6V21H18V17H22V11C22 9.34 20.66 8 19 8ZM8 5H16V8H8V5ZM16 19H8V15H16V19ZM20 15H18V13H6V15H4V11C4 10.45 4.45 10 5 10H19C19.55 10 20 10.45 20 11V15Z" fill="#323232"/>
+                                <path d="M18 12.5C18.5523 12.5 19 12.0523 19 11.5C19 10.9477 18.5523 10.5 18 10.5C17.4477 10.5 17 10.9477 17 11.5C17 12.0523 17.4477 12.5 18 12.5Z" fill="#323232"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_17_19094">
+                                    <rect width="24" height="24" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </button>
+                </div>
+            </section>
+            <section class="flex flex-col gap-6 sm:flex-row items-start sm:items-center">
+                <img class="min-w-40 h-40 bg-zinc-300 rounded-md object-cover" src="assets/image/photo.jpg" alt="내 사진"/>
+                <div class="flex flex-col h-auto gap-y-4 sm:gap-y-6 justify-between sm:h-40">
+                    <h3 class="text-base text-zinc-800 break-keep">
+                        안녕하세요.<br />
+                        사용자 경험(UX) 개선을 통해 비즈니스 문제를 해결하는 프론트엔드 개발자 정희현입니다.
+                    </h3>
+                    <div>
+                        <a class="text-lg font-semibold text-zinc-800 hover:underline" href="mailto:wjdgmlgus5@naver.com">
+                            Email.wjdgmlgus5@naver.com
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section class="flex flex-col gap-y-2">
+                <h2 class="text-4xl font-bold mb-4 text-zinc-900">Introduce.</h2>
+                <p class="text-sm text-zinc-900 break-keep border-b border-zinc-200 pb-4">
+                    (주)휴램프로의 유일한 프론트엔드 개발자로서 4년간 서비스를 책임지고 성장시켜왔습니다.디자이너, 여러 백엔드 개발자와 긴밀하게 협업하며 신규 서비스 런칭과 레거시 시스템 개선을 모두 경험했습니다.<br/><br/>
+                    단순히 주어진 기능을 구현하는 것을 넘어, 느린 개발 속도와 잦은 오류 등 근본적인 문제를 해결하기 위해 주도적으로 TypeScript, Webpack 도입과 Vite 마이그레이션을 진행하며 개발 환경의 안정성과 생산성을 크게 향상시킨 경험이 있습니다.<br/><br/>
+                    또한, PHP 기반의 API 개발 및 DB 관리 등 백엔드 업무를 병행하며 풀스택에 대한 깊은 이해를 갖추었습니다. 이러한 경험은 원활한 협업과 안정적인 아키텍처 설계에 기여하는 저의 가장 큰 강점입니다.
+                </p>
+            </section>
+            <section class="flex flex-col gap-y-2	">
+                <h2 class="text-4xl font-bold mb-4 text-zinc-900">Professional Experience.</h2>
+                <div class="flex flex-col gap-y-1 text-zinc-700">
+                    <a href="https://www.hulam.co.kr" target="_blank" class="inline-flex items-center w-fit gap-2 text-lg font-semibold text-blue-600 hover:underline" rel="noreferrer noopener">
+                        <span>(주)휴램프로</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs align-top text-blue-500"></i>
+                    </a>
+                    <div class="flex text-sm text-zinc-600 gap-2 divide-x divide-zinc-400">
+                        <span>프론트엔드 개발자/백엔드 개발자</span>
+                        <span class="pl-2">2021.04 ~ 현재</span>
+                    </div>
+                </div>
+                <div class="mt-3 text-zinc-900">
+                    <h3 class="text-lg font-semibold mb-2">프론트엔드</h3>
+                    <ul class="space-y-1 text-sm">
+                        <li>• React와 Vanilla Javascript를 사용하여 노무 관련 웹 애플리케이션 개발 및 구현</li>
+                        <li>• Web Component를 이용하여 UI 컴포넌트 라이브러리, 스토리북 구축 및 관리</li>
+                        <li>• 사용자 피드백을 반영하여 인터페이스 개선 및 기능 개발</li>
+                    </ul>
+                </div>
+                <div class="mt-3 text-zinc-900 border-b border-zinc-200 pb-4">
+                    <h3 class="text-lg font-semibold mb-2">백엔드</h3>
+                    <ul class="space-y-1 text-sm">
+                        <li>• PHP와 MySQL을 사용한 백엔드 기능 개발 및 데이터베이스 관리</li>
+                        <li>• API 설계 및 구현</li>
+                        <li>• PHPExcel 라이브러리를 사용하여 동적인 Excel 생성</li>
+                        <li>• Mpdf 라이브러리를 이용해 다양한 형식의 PDF 문서 생성</li>
+                    </ul>
+                </div>
+            </section>
+            <section class="flex flex-col gap-y-2">
+                <h2 class="text-4xl font-bold mb-4 text-zinc-900 break-inside-avoid">Projects.</h2>
+
+                <div class="text-lg font-semibold text-blue-600">
+                    <span>(주)휴램프로</span>
+                </div>
+
+                <div class="text-zinc-700">프론트엔드 개발자/백엔드 개발자 (2021년 4월 ~ 현재)</div>
+
+                <div class="flex flex-col gap-y-8 text-zinc-900">
+                    <div class="project-item border-b border-zinc-200 pb-6 break-inside-avoid">
+                        <h3 class="text-xl font-semibold mb-2">결제 모듈 개발</h3>
+                        <p class="text-sm text-zinc-600 mb-3">2025.09</p>
+                        <p class="text-sm mb-4">
+                            <strong>한 줄 요약:</strong> 기존 결제 모듈을 다른 PG사의 결제 모듈로 결제를 모두 처리할 수 있는 신규 결제 기능을 서비스에 안정적으로 도입하는 풀스택 프로젝트입니다.
+                        </p>
+                        <div class="text-sm space-y-2 mb-4">
+                            <p class="font-semibold">주요 역할 및 성과:</p>
+                            <ul class="space-y-1 text-zinc-800">
+                                <li>• <strong>프론트엔드:</strong> 사용자가 결제 정보를 입력하고 프로세스를 진행할 수 있는 직관적인 UI/UX 구현</li>
+                                <li>• <strong>백엔드:</strong> 결제 API 설계부터 DB 스키마 정의, 결제 내역 저장 및 PG사 연동 검증 로직까지 직접 개발</li>
+                                <li>• 풀스택 개발을 통해 **서비스의 핵심 비즈니스 로직 확장성**을 강화하고 안정적인 결제 시스템을 구축</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-semibold text-sky-800 bg-sky-100 px-2 py-1 rounded-full">TypeScript</span>
+                            <span class="text-xs font-semibold text-sky-800 bg-sky-100 px-2 py-1 rounded-full">PHP</span>
+                            <span class="text-xs font-semibold text-sky-800 bg-sky-100 px-2 py-1 rounded-full">MySQL</span>
+                        </div>
+                    </div>
+
+                    <div class="project-item border-b border-zinc-200 pb-6 break-inside-avoid">
+                        <h3 class="text-xl font-semibold mb-2">급여 계산 로직 테스트케이스 구축</h3>
+                        <p class="text-sm text-zinc-600 mb-3">2025.08</p>
+                        <p class="text-sm mb-4">
+                            <strong>한 줄 요약:</strong> 복잡한 급여 계산 로직의 정확성을 검증하고 배포 안정성을 높이기 위해 PHP assert를 이용한 테스트 케이스를 구축했습니다.
+                        </p>
+                        <div class="text-sm space-y-2 mb-4">
+                            <p class="font-semibold">주요 역할 및 성과:</p>
+                            <ul class="space-y-1 text-zinc-800">
+                                <li>• 다양한 고용 형태와 근무 조건을 기반으로 **엣지 케이스를 포함한 테스트 케이스를 직접 작성**</li>
+                                <li>• PHP의 `assert` 함수를 활용하여 유닛 테스트를 구성하고, 로직별 정확성을 자동으로 검증하는 시스템을 마련함</li>
+                                <li>• 수동 테스트에 의존하던 기존 방식에서 벗어나 **배포 전 오류를 사전에 방지**하고 서비스 안정성을 크게 확보</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-semibold text-sky-800 bg-sky-100 px-2 py-1 rounded-full">PHP</span>
+                        </div>
+                    </div>
+
+                    <div class="project-item border-b border-zinc-200 pb-6 break-inside-avoid">
+                        <h3 class="text-xl font-semibold mb-2">웹 컴포넌트 라이브러리 및 스토리북 구축</h3>
+                        <p class="text-sm text-zinc-600 mb-3">2024.08 ~ 진행중</p>
+                        <p class="text-sm mb-4">
+                            <strong>한 줄 요약:</strong> 특정 프레임워크에 종속되지 않는 재사용 가능한 UI 컴포넌트를 개발하고, 스토리북을 통해 디자인 시스템을 구축하는 프로젝트입니다.
+                        </p>
+                        <div class="text-sm space-y-2 mb-4">
+                            <p class="font-semibold">주요 역할 및 성과:</p>
+                            <ul class="space-y-1 text-zinc-800">
+                                <li>• <strong>Web Components 표준을 활용</strong>하여 캡슐화된 UI 컴포넌트(Button, Icon 등)를 직접 개발하여 기술적 이해도를 높임</li>
+                                <li>• <strong>Storybook을 도입 및 설정</strong>하여 컴포넌트를 시각적으로 문서화하고, 디자이너 및 동료 개발자와의 협업 효율성을 증대시킴</li>
+                                <li>• 반복적인 UI 개발 시간을 단축하여 **프로젝트의 전반적인 생산성 향상**에 기여</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-semibold text-sky-800 bg-sky-100 px-2 py-1 rounded-full">Web Components</span>
+                            <span class="text-xs font-semibold text-sky-800 bg-sky-100 px-2 py-1 rounded-full">Storybook</span>
+                            <span class="text-xs font-semibold text-sky-800 bg-sky-100 px-2 py-1 rounded-full">JavaScript</span>
+                        </div>
+                    </div>
+
+                    <div class="project-item border-b border-zinc-200 pb-6 break-inside-avoid">
+                        <h3 class="text-xl font-semibold mb-2">레거시 프론트엔드 시스템 개선 및 모던화</h3>
+                        <p class="text-sm text-zinc-600 mb-3">2024.07 ~ 진행중</p>
+                        <p class="text-sm mb-4">
+                            <strong>한 줄 요약:</strong> Vanilla JS 기반의 레거시 시스템에 TypeScript, Webpack 등을 도입하여 모던 개발 환경을 구축하고 안정성을 높인 프로젝트입니다.
+                        </p>
+                        <div class="text-sm space-y-2 mb-4">
+                            <p class="font-semibold">주요 역할 및 성과:</p>
+                            <ul class="space-y-1 text-zinc-800">
+                                <li>• <strong>주도적으로 TypeScript를 도입</strong>하여 컴파일 단계에서 에러를 사전 방지하고, 코드 자동 완성으로 개발 경험(DX)을 향상시킴</li>
+                                <li>• <strong>Webpack과 Babel 환경을 직접 구축</strong>하여 모듈 기반 개발 및 최신 문법(ES6+) 도입의 기반을 마련함</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-semibold text-sky-800 bg-sky-100 px-2 py-1 rounded-full">TypeScript</span>
+                            <span class="text-xs font-semibold text-sky-800 bg-sky-100 px-2 py-1 rounded-full">Webpack</span>
+                            <span class="text-xs font-semibold text-sky-800 bg-sky-100 px-2 py-1 rounded-full">Babel</span>
+                        </div>
+                    </div>
+
+                    <div class="project-item border-b border-zinc-200 pb-6 break-inside-avoid">
+                        <h3 class="text-xl font-semibold mb-2">퇴직금 계산 기능 구현</h3>
+                        <p class="text-sm text-zinc-600 mb-3">2024.04 ~ 2024.06</p>
+                        <p class="text-sm mb-4">
+                            <strong>한 줄 요약:</strong> 사용자가 퇴직금을 정확하게 계산하고 그 결과를 PDF로 저장 및 출력할 수 있는 기능을 개발했습니다.
+                        </p>
+                        <div class="text-sm space-y-2 mb-4">
+                            <p class="font-semibold">주요 역할 및 성과:</p>
+                            <ul class="space-y-1 text-zinc-800">
+                                <li>• Vanilla JS로 복잡한 퇴직금 계산 로직을 구현하고, 사용자가 쉽게 정보를 입력할 수 있는 UI를 개발</li>
+                                <li>• PHP와 Mpdf 라이브러리를 이용해 계산 결과를 PDF 문서로 동적 생성하는 기능을 구현</li>
+                                <li>• 수동 계산으로 발생하던 **인적 오류를 줄여 계산 정확도를 높이고** 신고 및 관리 효율성을 향상시킴</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-semibold text-sky-800 bg-sky-100 px-2 py-1 rounded-full">Vanilla JS</span>
+                            <span class="text-xs font-semibold text-sky-800 bg-sky-100 px-2 py-1 rounded-full">PHP</span>
+                            <span class="text-xs font-semibold text-sky-800 bg-sky-100 px-2 py-1 rounded-full">Mpdf</span>
+                        </div>
+                    </div>
+
+                    <div class="project-item border-b border-zinc-200 pb-6 break-inside-avoid">
+                        <h3 class="text-xl font-semibold mb-2">Notion 스타일의 블록 기반 웹 에디터 개발</h3>
+                        <p class="text-sm text-zinc-600 mb-3">2023.12 ~ 2024.01</p>
+                        <p class="text-sm mb-4">
+                            <strong>한 줄 요약:</strong> `contenteditable` 속성을 활용하여 사용자가 직관적으로 문서를 편집할 수 있는 블록 기반의 웹 에디터를 개발했습니다.
+                        </p>
+                        <div class="text-sm space-y-2 mb-4">
+                            <p class="font-semibold">주요 역할 및 성과:</p>
+                            <ul class="space-y-1 text-zinc-800">
+                                <li>• <strong>Vanilla JS만으로 블록 생성/수정/삭제 로직을 직접 구현</strong>하며 브라우저 동작 원리에 대한 깊은 이해를 얻음</li>
+                                <li>• 코드 블록, 자동 번호, 구분선 기능등을 개발하여 **사용자의 문서 작성 생산성을 크게 향상**시킴</li>
+                                <li>• 다양한 콘텐츠 블록을 구현하여 **서비스의 핵심 경쟁력 확보**에 기여</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-semibold text-sky-800 bg-sky-100 px-2 py-1 rounded-full">Vanilla JS</span>
+                            <span class="text-xs font-semibold text-sky-800 bg-sky-100 px-2 py-1 rounded-full">HTML(contenteditable)</span>
+                            <span class="text-xs font-semibold text-sky-800 bg-sky-100 px-2 py-1 rounded-full">PHP</span>
+                        </div>
+                    </div>
+
+                    <div class="project-item border-b border-zinc-200 pb-6 break-inside-avoid">
+                        <h3 class="text-xl font-semibold mb-2">휴램프로 (노무사 플랫폼) 신규 개발</h3>
+                        <p class="text-sm text-zinc-600 mb-3">2023.10 ~ 2023.12</p>
+                        <p class="text-sm mb-4">
+                            <strong>한 줄 요약:</strong> 노무사의 복잡한 업무를 효율적으로 관리할 수 있는 React 기반의 SaaS 플랫폼을 신규 개발했습니다.
+                        </p>
+                        <div class="text-sm space-y-2 mb-4">
+                            <p class="font-semibold">주요 역할 및 성과:</p>
+                            <ul class="space-y-1 text-zinc-800">
+                                <li>• <strong>React Query를 활용하여 서버 상태를 관리</strong>하고, 비동기 데이터 처리 로직을 효율화하여 서비스 안정성을 높임</li>
+                                <li>• <strong>느린 빌드 속도 개선을 위해 CRA에서 Vite로 마이그레이션을 주도</strong>하여 개발 생산성을 향상시킴</li>
+                                <li>• Ant Design과 TailwindCSS를 조합하여 재사용 가능한 컴포넌트를 설계하고, **UI 개발 시간을 단축**함</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-semibold text-sky-800 bg-sky-100 px-2 py-1 rounded-full">React</span>
+                            <span class="text-xs font-semibold text-sky-800 bg-sky-100 px-2 py-1 rounded-full">React Query</span>
+                            <span class="text-xs font-semibold text-sky-800 bg-sky-100 px-2 py-1 rounded-full">Vite</span>
+                            <span class="text-xs font-semibold text-sky-800 bg-sky-100 px-2 py-1 rounded-full">Ant Design</span>
+                        </div>
+                    </div>
+
+                    <div class="project-item border-b border-zinc-200 pb-6 break-inside-avoid">
+                        <h3 class="text-xl font-semibold mb-2">전자계약 시스템 구축</h3>
+                        <p class="text-sm text-zinc-600 mb-3">2022.11 ~ 2022.12</p>
+                        <p class="text-sm mb-4">
+                            <strong>한 줄 요약:</strong> 전자 서명 및 카카오 알림톡을 연동하여 계약 프로세스를 디지털화하고 사용 편의성을 높였습니다.
+                        </p>
+                        <div class="text-sm space-y-2 mb-4">
+                            <p class="font-semibold">주요 역할 및 성과:</p>
+                            <ul class="space-y-1 text-zinc-800">
+                                <li>• 계약서 생성부터 서명 요청, 완료 알림까지 이어지는 전체 프로세스의 사용자 인터페이스(UI)를 설계 및 개발</li>
+                                <li>• 기존 오프라인 계약 방식의 번거로움을 해소하고 **계약서 관리 편의성 및 프로세스 효율성을 크게 향상**시킴</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-semibold text-sky-800 bg-sky-100 px-2 py-1 rounded-full">Vanilla JS</span>
+                            <span class="text-xs font-semibold text-sky-800 bg-sky-100 px-2 py-1 rounded-full">PHP</span>
+                        </div>
+                    </div>
+
+                    <div class="project-item border-b border-zinc-200 pb-6 break-inside-avoid">
+                        <h3 class="text-xl font-semibold mb-2">휴램 홈페이지 리뉴얼 및 프로그램 리디자인</h3>
+                        <p class="text-sm text-zinc-600 mb-3">2022.07 ~ 2022.10</p>
+                        <p class="text-sm mb-4">
+                            <strong>한 줄 요약:</strong> 노후화된 기존 서비스의 디자인 시스템을 전면 개편하여 사용자 경험과 브랜드 일관성을 향상시켰습니다.
+                        </p>
+                        <div class="text-sm space-y-2 mb-4">
+                            <p class="font-semibold">주요 역할 및 성과:</p>
+                            <ul class="space-y-1 text-zinc-800">
+                                <li>• 새로운 디자인 시스템을 도입하고, 서비스 전반의 UI/UX를 개선하여 사용성을 높임</li>
+                                <li>• **디자인 일관성을 확보**하고 브랜드 이미지를 제고하는 데 기여</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-semibold text-sky-800 bg-sky-100 px-2 py-1 rounded-full">Vanilla JS</span>
+                            <span class="text-xs font-semibold text-sky-800 bg-sky-100 px-2 py-1 rounded-full">PHP</span>
+                        </div>
+                    </div>
+
+                    <div class="project-item border-b-0 pb-6 break-inside-avoid"> <h3 class="text-xl font-semibold mb-2">더존 아마란스 전자노무계약서 메뉴 구현</h3>
+                        <p class="text-sm text-zinc-600 mb-3">2021.04 ~ 2022.06</p>
+                        <p class="text-sm mb-4">
+                            <strong>한 줄 요약:</strong> 더존 ERP 내에 연동되는 전자계약 서비스를 Micro-Frontend 아키텍처를 적용하여 개발한 첫 React 프로젝트입니다.
+                        </p>
+                        <div class="text-sm space-y-2 mb-4">
+                            <p class="font-semibold">주요 역할 및 성과:</p>
+                            <ul class="space-y-1 text-zinc-800">
+                                <li>• **React 클래스형 컴포넌트**와 생명주기 메서드를 사용하여 메뉴의 전체 UI와 상태 관리 로직을 구현</li>
+                                <li>• **Micro-Frontend 아키텍처를 적용**하여 ERP 환경에 독립적으로 배포 및 실행될 수 있는 메뉴를 성공적으로 설계함</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-semibold text-sky-800 bg-sky-100 px-2 py-1 rounded-full">React 16</span>
+                            <span class="text-xs font-semibold text-sky-800 bg-sky-100 px-2 py-1 rounded-full">Micro-Frontend</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="flex flex-col gap-y-2">
+                <h2 class="text-4xl font-bold mb-4 text-zinc-900 break-inside-avoid">Skills.</h2>
+                <div class="space-y-6 text-zinc-900 pb-4">
+                    <div>
+                        <h3 class="text-lg font-semibold text-zinc-800 mb-2 break-inside-avoid">Frontend</h3>
+                        <div class="flex flex-col gap-y-1 text-sm">
+                            <p><strong>Languages:</strong> JavaScript (ES6+), TypeScript</p>
+                            <p><strong>Frameworks & Libraries:</strong> React, Web Components</p>
+                            <p><strong>State Management:</strong> React Query</p>
+                            <p><strong>Styling:</strong> HTML5, CSS3, TailwindCSS, Ant Design</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-zinc-800 mb-2 break-inside-avoid">Backend & Database</h3>
+                        <div class="flex flex-col gap-y-1 text-sm">
+                            <p>PHP, MySQL</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-zinc-800 mb-2 break-inside-avoid">Tooling & DX</h3>
+                        <div class="flex flex-col gap-y-1 text-sm">
+                            <p><strong>Build Tools:</strong> Webpack, Vite, Babel</p>
+                            <p><strong>Version Control:</strong> Git</p>
+                            <p><strong>Developer Experience:</strong> Storybook, ESLint, Prettier</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="flex flex-col gap-y-2 break-inside-avoid">
+                <h2 class="text-4xl font-bold text-zinc-900 mb-4 break-inside-avoid">Additional Information.</h2>
+                <ul class="space-y-3 text-zinc-900 border-b border-zinc-200 pb-4 text-sm">
+                    <li><strong>자격증:</strong> 정보처리기사 (2021년 취득)</li>
+                    <li><strong>학력:</strong> 원광대학교 시각디자인학부 졸업 (2019)</li>
+                </ul>
+            </section>
         </div>
-      </div>
-    </div>
-  </div>
-</body>
+    </body>
 
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            const print = document.getElementById("print");
+            const downloadBtn = document.getElementById("download");
+
+            print.addEventListener("click", () => window.print())
+
+            downloadBtn.addEventListener("click", () => {
+                const buttons = document.getElementById("action-buttons");
+
+                buttons.style.display = 'none';
+                const element = document.querySelector('.container');
+                const opt = {
+                    margin:       [10, 20], // 여백 (mm)
+                    filename:     '[이력서] 프론트엔드_정희현.pdf',
+                    image:        { type: 'jpeg', quality: 0.98 },
+                    html2canvas:  { scale: 2 }, // 캔버스 스케일 (높을수록 선명)
+                    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                };
+
+                html2pdf().from(element).set(opt).save().then(() => {
+                    buttons.style.display = 'flex';
+                });
+            });
+
+            tippy('[data-tippy-content]');
+        })
+    </script>
 </html>
